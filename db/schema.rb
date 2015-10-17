@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017101050) do
+ActiveRecord::Schema.define(version: 20151017163517) do
+
+  create_table "error_change_logs", force: :cascade do |t|
+    t.integer  "error_message_id", limit: 4
+    t.string   "title",            limit: 255
+    t.text     "error_code",       limit: 65535
+    t.text     "detail",           limit: 65535
+    t.text     "knowledge",        limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "error_messages", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -19,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151017101050) do
     t.text     "detail",     limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.text     "knowledge",  limit: 65535
   end
 
   create_table "social_profiles", force: :cascade do |t|
