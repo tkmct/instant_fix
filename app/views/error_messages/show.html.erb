@@ -1,4 +1,7 @@
 <div>
+	<div style="float: right;">	
+	<%= link_to "編集する", edit_error_message_path(@error_message), :class => "btn btn-primary" %>
+	</div> 
 	<h1><%= @error_message.title %></h1>
 	<div><%= @error_message.error_code %></div>
 	<div><%= @error_message.detail %></div>
@@ -10,3 +13,7 @@
 	<% end %>
 </div>
 <% end %>
+
+<div>
+<%= link_to "解決法を登録する！", new_error_message_solution_path(@error_message), class: "btn btn-info" %>
+</div>
