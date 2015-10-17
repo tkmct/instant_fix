@@ -1,1 +1,1 @@
-$('#good_"#{solution.id}').html('<%= link_to "#{solution.good}", "#", id: "good_#{solution.id}" %>')
+$('#good_' + <%= @solution.id.to_s %>).html('<%= @solution.good %>');

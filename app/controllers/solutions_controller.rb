@@ -17,11 +17,11 @@ class SolutionsController < ApplicationController
 	end
 
 	def good
-		solution = Solution.find(params[:id])
-		solution.good += 1
-		solution.save
+		@solution = Solution.find(params[:id])
+		@solution.good += 1
+		@solution.save
 		respond_to do |format|
-			format.js {render :good}
+			format.js {render :good, @solution => @solution}
 		end
 	end
 
