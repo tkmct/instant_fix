@@ -28,6 +28,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-hatena'
+gem 'kaminari'
 
 
 # Use ActiveModel has_secure_password

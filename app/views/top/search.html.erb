@@ -1,0 +1,7 @@
+<p>ヒットしたエラー一覧</p>
+<% @error_messages.each do |error_message| %>
+  <li>
+    <p><a href="/error_messages/<%= error_message.id %>">
+      <%= error_message.title %></a></p>
+  </li>
+<% end %>

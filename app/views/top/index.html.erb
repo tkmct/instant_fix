@@ -1,1 +1,8 @@
-<p>インデックスページっす！</p>
+<%= form_tag('/search', method: :get) do %>
+  <p>エラーコードを検索</p>
+  <input placeholder="エラーコードを入力してください" type="text", name="keyword">
+  <input type="submit" value="検索">
+<% end %>
+
+<%= render partial: "error_messages", collection: @error_messages %>
+<%= paginate(@error_messages) %>
