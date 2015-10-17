@@ -1,1 +1,4 @@
+// 一度いいねしたらdisableに
 $('#good_' + <%= @solution.id.to_s %>).html('<%= @solution.good %>');
+$('.good').addClass("disabled");
+$('.good:hover').css('text-decoration', 'none').css('cursor', 'default');

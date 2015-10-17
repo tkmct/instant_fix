@@ -1,4 +1,4 @@
 <div class="solution-area">
 	<%= solution.solution %>
-	<%= link_to "いいね！", {:controller => :solutions, :action => :good, id: solution.id},  method: :post, remote: true %><%= link_to "#{solution.good}", "#", id: "good_#{solution.id}" %>
+	<%= link_to "いいね！", {:controller => :solutions, :action => :good, id: solution.id},  method: :post, remote: true, class: "good" %><%= link_to "#{solution.good}", "#", id: "good_#{solution.id}" %>
 </div>
