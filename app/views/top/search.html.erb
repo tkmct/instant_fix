@@ -3,5 +3,8 @@
   <li>
     <p><a href="/error_messages/<%= error_message.id %>">
       <%= error_message.title %></a></p>
+    <% if user_signed_in? %>
+      <p><a href="/error_messages/:error_message_id/solutions/new/<%= error_message.id %>">投稿</a></p>
+    <% end %>
   </li>
 <% end %>
