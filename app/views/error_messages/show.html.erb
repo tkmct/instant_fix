@@ -1,0 +1,12 @@
+<div>
+	<h1><%= @error_message.title %></h1>
+	<div><%= @error_message.error_code %></div>
+	<div><%= @error_message.detail %></div>
+</div>
+<% if @solutions.present? %>
+<div>
+	<% @solutions.each do |solution| %>
+		<%= render "solution_area", solution: solution %>
+	<% end %>
+</div>
+<% end %>
