@@ -1,8 +1,20 @@
+<h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
+<%= link_to 'プロフィールを登録する', edit_user_path(current_user) %>
+
 <%= form_tag('/search', method: :get) do %>
   <p>エラーコードを検索</p>
   <input placeholder="エラーコードを入力してください" type="text", name="keyword">
   <input type="submit" value="検索">
 <% end %>
+
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
 <%= render partial: "error_messages", collection: @error_messages %>
 <%= paginate(@error_messages) %>
