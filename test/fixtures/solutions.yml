@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  error_message_id: 1
+  solution: MyText
+  good: 1
+
+two:
+  user_id: 1
+  error_message_id: 1
+  solution: MyText
+  good: 1
