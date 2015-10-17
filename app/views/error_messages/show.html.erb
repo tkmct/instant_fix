@@ -1,31 +1,89 @@
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5&appId=488314378005349";
-          fjs.parentNode.insertBefore(js, fjs);
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5&appId=488314378005349";
+fjs.parentNode.insertBefore(js, fjs);
 
 }(document, 'script', 'facebook-jssdk'));</script>
-<div>
-	<div style="float: right;">	
-	<%= link_to "編集する", edit_error_message_path(@error_message), :class => "btn btn-primary" %>
-	</div> 
-	<h1><%= @error_message.title %></h1>
-	<div><%= @error_message.error_code %></div>
-	<div><%= @error_message.detail %></div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div style="float: right;">	
+<%= link_to "編集する", edit_error_message_path(@error_message), :class => "btn btn-primary" %>
+<div class="fb-share-button" data-href="http://157.7.167.93:3000/" data-layout="button_count"></div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://157.7.167.93:3000/">Tweet</a>
+</div> 
+
+<div class="page-header" id="banner">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<br>
+<h1><%= @error_message.title %></h1>
+<div class="well well-sm">
+<h3><%= @error_message.error_code %></h3>
 </div>
-<% if @solutions.present? %>
-<div>
-	<% @solutions.each do |solution| %>
-		<%= render "solution_area", solution: solution %>
-	<% end %>
+</div>
+</div>        
+</div>
+<!-- Containers
+================================================== -->
+<div class="bs-docs-section">
+
+<div class="row">
+<div class="col-lg-12">
+<div class="page-header">
+<h2 id="containers">説明</h2>
+</div>
+<div class="bs-component">
+<div class="jumbotron">                
+<p><%=raw @error_message.detail %></p>
+</div>
+</div>
+</div>
+</div>
+<div class="row">          
+<div class="col-lg-12">
+<div class="page-header">
+<h2 id="solutions">必要とされる前提知識</h2>
+</div>						
+</div>
+</div>
+<div class="row">          
+<div class="col-lg-12">
+<div class="bs-component">
+<div class="well">
+<h4><%=raw @error_message.knowledge %></h4>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">          
+<div class="col-lg-12">
+<div class="page-header">
+<h2 id="solutions">解決策</h2>
+</div>						
+</div>				
+</div>
+<% @solutions.each do |solution| %>
+<div class="row">          
+<div class="col-lg-10">						
+<div class="bs-component">
+<div class="well">
+<p><%=raw solution.solution %></p>
+</div>
+</div>
+</div>
+<div class="col-lg-2">
+<div class="sponsor">
+<p>提供者：<%= solution.user.name %></p>
+	<%= link_to "いいね！", {:controller => :solutions, :action => :good, id: solution.id},  method: :post, remote: true, class: "good" %><%= link_to "#{solution.good}", "#", id: "good_#{solution.id}" %>
+</div>
+</div>
 </div>
 <% end %>
+
 <div>
 <%= link_to "解決法を登録する！", new_error_message_solution_path(@error_message), class: "btn btn-info" %>
 </div>
-
-<div class="fb-share-button" data-href="http://157.7.167.93:3000/" data-layout="button_count"></div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://157.7.167.93:3000/">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

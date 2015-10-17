@@ -1,29 +1,36 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a href="/" class="navbar-brand">Instant Fix</a>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <%= form_tag('/search', method: :get, html: {class: "navbar-form navbar-left"}) do %>
-        <p>エラーコードを検索</p>
-        <input placeholder="エラーコードを入力してください" type="text", name="keyword" class="form-control">
-        <input type="submit" value="検索" class="btn btn-default">
+<div class="navbar navbar-default navbar-fixed-top" style="height: 70px">
+      <div class="container">
+        <div class="navbar-header col-md-3">
+          <a href="/" class="navbar-brand">INSTANT FIX</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+        <%= form_tag('/search', method: :get, html: {class: "navbar-form navbar-nav"}) do %>
+        <div class="col-md-4">
+          <div class="form-group">
+        <input placeholder="エラーコードを入力してください" type="text", name="keyword" class="form-control" size="40">
+          </div>
+        </div>
+        <div class="col-md-1">
+        <input type="submit" value="検索" class="btn btn-default" style="float:right;">
+        </div>
       <% end %>
-      <ul class="nav navbar-nav" class="float-right">
-        <% if user_signed_in? %>
+      <div class="col-md-4">
+          <ul class="nav navbar-nav navbar-right" style="float: right;">
+                  <% if user_signed_in? %>
           <li><%= link_to "マイページへ", root_path %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
         <% else %>
-          <li><%= link_to "ログイン", user_sign_in_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "アカウント登録", "#" %></li>
         <% end %>
-      </ul>
+          </ul>
+      </div>
+
+        </div>
+      </div>
     </div>
-  </div>
-</nav>

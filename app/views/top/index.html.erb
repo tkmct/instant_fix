@@ -1,8 +1,37 @@
+  <h1>エラーコードを検索</h1>
+<div class="col-lg-10 row">
 <%= form_tag('/search', method: :get) do %>
-  <p>エラーコードを検索</p>
-  <input placeholder="エラーコードを入力してください" type="text", name="keyword">
-  <input type="submit" value="検索">
+<div class="form-group col-md-10">
+  <input placeholder="エラーコードを入力してください" type="text", name="keyword" class="form-control">
+</div>
+<div class="col-md-2">
+  <input type="submit" value="検索" class="btn btn-primary">
+</div>
 <% end %>
-
+</div>
+<Hr Noshade>
+<div class="col-lg-10">
 <%= render partial: "error_messages", collection: @error_messages %>
 <%= paginate(@error_messages) %>
+</div>
+
+<%= link_to "エラーメッセージを新規登録する", new_error_message_path, class: "btn btn-small btn-info" %>
+
+<% if !user_signed_in? %>
+<div class="bs-docs-section">        
+<div class="row">
+<div class="col-lg-12">
+<div class="page-header">
+<h2>投稿の為には…</h2>
+</div>
+</div>
+<div class="col-lg-12">
+<div class="form-group">
+<div class="col-lg-12" align="center">			  
+<a href="#" class="btn btn-primary">このサービスに登録する</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<% end %>

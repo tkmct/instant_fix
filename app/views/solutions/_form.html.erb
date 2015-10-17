@@ -1,5 +1,22 @@
+
+<div class="col-lg-8">
+<div class="well bs-component">
+<form class="form-horizontal">
+<fieldset>
 <div class="form-group">
-<%= f.label :solution, "解決策" %>
-<%= f.text_area :solution %>
+<label for="inputErrAbst" class="col-lg-3 control-label"><h4>エラー概要</h4></label>
+<div class="col-lg-9">
+<%= f.text_area :solution, class: "form-control", placeholder: "解決策を入力してください。", rows: 10 %>
+<span class="help-block"></span>
+</div>					
 </div>
-<%= f.submit "送信", class: "btn btn-primary" %>
+
+<div class="form-group">
+<div class="col-lg-10 col-lg-offset-2" align="right">
+<%= f.submit "送信" , class: "btn btn-small btn-primary" %>
+</div>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
