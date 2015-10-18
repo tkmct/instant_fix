@@ -1,48 +1,17 @@
-
-<div class="row">
-<div class="col-lg-8">
-<div class="well bs-component">
-<form class="form-horizontal">
-<fieldset>
 <div class="form-group">
-<label for="inputMessage" class="col-lg-3"><h4>エラーメッセージ</h4></label>
-<div class="col-lg-9">
-<%= f.text_area :error_code, class: "form-control", placeholder: "エラーメッセージを入力してください", rows: 5 %>
-</div>
+<%= f.label :title, "Title" %>
+<%= f.text_field :title %>
 </div>
 <div class="form-group">
-<label for="inputErrAbst" class="col-lg-3 control-label"><h4>エラー概要</h4></label>
-<div class="col-lg-9">
-<%= f.text_area :detail, class: "form-control", placeholder: "エラー概要を入力してください", rows: 10 %>
-<span class="help-block"></span>
-</div>					
+<%= f.label :detail, "概要" %>
+<%= f.text_area :detail %>
 </div>
-
-
 <div class="form-group">
-<label for="inputErrAbst" class="col-lg-3 control-label"><h4>前提知識</h4></label>
-<div class="col-lg-9" id="add_textform_knowledge">
-<%= f.text_area :knowledge, class: "form-control", rows: 10 %>
-<span class="help-block"></span>								  
+<%= f.label :error_code, "エラーコード" %>
+<%= f.text_area :error_code %>
 </div>
-</div>
-
 <div class="form-group">
-<div class="col-lg-10 col-lg-offset-2" align="right">
-<br>
+<%= f.label :knowledge, "前提知識" %>
+<%= f.text_area :knowledge %>
+</div>
 <%= f.submit "送信" , class: "btn btn-small btn-primary" %>
-</div>
-</div>
-</fieldset>
-</form>
-</div>
-</div>
-<div class="col-lg-4">
-<div class="bs-component">
-<h2>＜前提知識の書き方＞</h2>
-
-<h4 class="text-primary">例1）Rubyの文法の理解<br>例2）C言語のコンパイル方法の理解</h4>
-</div>
-</div>
-</div>
-</div>

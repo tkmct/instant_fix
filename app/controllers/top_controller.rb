@@ -7,4 +7,5 @@ class TopController < ApplicationController
   def search
     @error_messages = ErrorMessage.where('title LIKE(?)', "%#{params[:keyword]}%").limit(10)
   end
+
 end

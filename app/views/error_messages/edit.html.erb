@@ -1,7 +1,4 @@
 <div>
-<h1>Error Message編集</h1>
-</div>
-<div>
 	<%= form_for @error_message, url: {:controller => :error_messages, :action => :update}, method: :put do |f| %>
 	<%= render "form", f: f %>
 	<% end %>

@@ -1,6 +1,7 @@
 <div>
 	<h1><%= @error_message.title %></h1>
-	<h2><%= @error_message.error_code %></h2>
+	<div><%= @error_message.error_code %></div>
+	<div><%= @error_message.detail %></div>
 </div>
 <div>
 <%= form_for @solution, url: {:controller => :solutions, :action => :create} do |f| %>

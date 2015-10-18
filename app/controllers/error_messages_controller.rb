@@ -22,7 +22,6 @@ class ErrorMessagesController < ApplicationController
     @error_message = ErrorMessage.find(params[:id])
   end
 
-  # ひとつ前のバージョンとしてerror_change_logを作成
   def update
     error_log = @error_message.error_change_logs.build
     error_log.attributes = {title: @error_message.title, detail: @error_message.detail,
