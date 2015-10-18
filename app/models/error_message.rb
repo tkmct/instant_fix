@@ -4,5 +4,5 @@ class ErrorMessage < ActiveRecord::Base
 	has_many :solutions
 	has_many :error_change_logs
 	has_many :clips
-	belongs_to :user_id
+	belongs_to :user
 end
