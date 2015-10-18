@@ -10,7 +10,15 @@ fjs.parentNode.insertBefore(js, fjs);
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div style="float: right;">	
+<%= @error_message.clips.count %>Clip!
+<% if user_signed_in? %>
 <%= link_to "編集する", edit_error_message_path(@error_message), :class => "btn btn-primary" %>
+<% if current_user.clips.where(error_message_id: @error_message.id).blank? %>
+<%= link_to "Clip", {:controller => :error_messages, :action => :clip, id: @error_message.id}, method: :post, remote: true, class: "btn btn-primary", id: "clip" %>
+<% else %>
+<a href="#" class="btn btn-danger btn-small">Cliped!</a>
+<% end %>
+<% end %>
 <div class="fb-share-button" data-href="http://157.7.167.93:3000/" data-layout="button_count"></div>
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://157.7.167.93:3000/">Tweet</a>
 </div> 

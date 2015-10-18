@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :solutions, only: [:new, :create]
   end
 
+  post "error_messages/:id/clip", to: "error_messages#clip"
   post "solutions/:id/good", to: "solutions#good"
 end
  

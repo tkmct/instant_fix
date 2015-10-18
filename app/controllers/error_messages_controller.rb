@@ -3,6 +3,7 @@ class ErrorMessagesController < ApplicationController
 
   def show
     @solutions = @error_message.solutions
+    @user = current_user
   end
 
   def new
@@ -32,6 +33,16 @@ class ErrorMessagesController < ApplicationController
       redirect_to action: :show, id: params[:id]
     else
       render :edit
+    end
+  end
+
+  def clip
+    @user = current_user
+    @error_message = ErrorMessage.find(params[:id])
+    clip = Clip.new(user_id: @user.id, error_message_id: @error_message.id)
+    clip.save
+    respond_to do |format|
+      format.js
     end
   end
 
