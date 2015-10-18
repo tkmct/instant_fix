@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151018040040) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.text     "knowledge",  limit: 65535
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "social_profiles", force: :cascade do |t|

@@ -1,4 +1,4 @@
 class Clip < ActiveRecord::Base
-	belongs_to :users
-	belongs_to :error_messages
+	belongs_to :user
+	belongs_to :error_message
 end

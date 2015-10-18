@@ -76,17 +76,19 @@ fjs.parentNode.insertBefore(js, fjs);
 </div>
 <% @solutions.each do |solution| %>
 <div class="row">          
-<div class="col-lg-10">						
+<div class="col-md-10">						
 <div class="bs-component">
 <div class="well">
 <p><%=raw solution.solution %></p>
 </div>
 </div>
 </div>
-<div class="col-lg-2">
+<div class="col-md-2" style="padding-top: 10px">
 <div class="sponsor">
+<a href="<%= user_path(solution.user) %>">	
 <p>提供者：<%= solution.user.name %></p>
-	<%= link_to "いいね！", {:controller => :solutions, :action => :good, id: solution.id},  method: :post, remote: true, class: "good" %><%= link_to "#{solution.good}", "#", id: "good_#{solution.id}" %>
+</a>
+	<%= link_to "いいね！", {:controller => :solutions, :action => :good, id: solution.id},  method: :post, remote: true, class: "good btn btn-warning btn-small" %>          <%= link_to "#{solution.good}", "#", id: "good_#{solution.id}" %>
 </div>
 </div>
 </div>

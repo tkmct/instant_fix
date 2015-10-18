@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # validates :name, presence: true, uniqueness: true
   has_many :solutions
   has_many :clips
+  has_many :error_messages
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

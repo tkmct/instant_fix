@@ -41,6 +41,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @clips = @user.clips
   end
 
   def edit

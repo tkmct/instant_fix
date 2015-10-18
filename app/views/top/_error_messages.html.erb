@@ -1,15 +1,26 @@
 <div class="row">
-<div class="bs-component">
-<div class="panel panel-default">
-<div class="panel-body">
-<a href="/error_messages/<%= error_messages.id %>"><%= error_messages.title %></a>
+<div class="bs-component col-md-10">
+<a href="/error_messages/<%= error_messages.id %>">
+<div class="panel panel-default panel-body" style="text-decoration: none;">
+<div class="col-md-9" style="color: #ffffff;">
+<h3>Error: <%= error_messages.error_code %></h3>
+</div>
+<div class="col-md-3 pull-right" style="color: #ffffff; padding-top: 20px">
+	<%= error_messages.clips.count %> CLIP
+</div>
+<div class="col-md-9" style="font-size: 20px; color: #ffffff;">
+	<%= truncate(error_messages.detail, length: 60) %>
+</div>
+<div class="col-md-3 pull-right" style="color: #ffffff;">
+	<%= error_messages.solutions.count %> SOLUTION
 </div>
 </div>              
+</a>
 </div>		  
-<div class="col-lg-3">
+<div class="col-md-2">
 <div class="form-group">
 <div class="col-lg-12" align="right">								<% if user_signed_in? %>
-<a href="/error_messages/<%= error_messages.id %>/solutions/new/" class="btn btn-primary">このエラーの解決策を投稿</a>
+<a href="/error_messages/<%= error_messages.id %>/solutions/new/" class="btn btn-primary" style="margin-top: 20px;">解決策を投稿</a>
 <% end %>
 </div>
 </div>

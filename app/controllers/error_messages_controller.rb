@@ -1,5 +1,6 @@
 class ErrorMessagesController < ApplicationController
   before_action :set_error_message, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:show]
 
   def show
     @solutions = @error_message.solutions
@@ -12,6 +13,7 @@ class ErrorMessagesController < ApplicationController
 
   def create
     @error_message = ErrorMessage.new(error_message_params)
+    @error_message.user_id = current_user.id
     if @error_message.save
       redirect_to action: :show, id: @error_message.id
     else
