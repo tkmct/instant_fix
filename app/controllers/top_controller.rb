@@ -5,7 +5,7 @@ class TopController < ApplicationController
   end
 
   def search
-    @error_messages = ErrorMessage.where('title LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(10)
+    @error_messages = ErrorMessage.where('error_code LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(10)
     render :index
   end
 end
