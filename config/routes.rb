@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   root to: "top#index"
   get '/search' => 'top#search'
+  resources :users, only: [:show, :update, :edit]
   resources :error_messages, only: [:new, :show, :create, :edit, :update] do
     resources :solutions, only: [:new, :create]
   end
