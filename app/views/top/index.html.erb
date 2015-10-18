@@ -15,7 +15,6 @@
 <%= paginate(@error_messages) %>
 </div>
 
-<%= link_to "エラーメッセージを新規登録する", new_error_message_path, class: "btn btn-small btn-info" %>
 
 <% if !user_signed_in? %>
 <div class="bs-docs-section">        
@@ -34,5 +33,6 @@
 </div>
 </div>
 </div>
+<% else %>
+<%= link_to "エラーメッセージを新規登録する", new_error_message_path, class: "btn btn-small btn-info" %>
 <% end %>
-<%= link_to "twitterでログイン", user_omniauth_authorize_path(:twitter) %>

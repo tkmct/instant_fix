@@ -21,7 +21,7 @@
       <% end %>
       <div class="col-md-4">
           <ul class="nav navbar-nav navbar-right" style="float: right;">
-                  <% if user_signed_in? %>
+          <% if user_signed_in? %>
           <li><%= link_to "マイページへ", user_path(current_user) %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
         <% else %>

@@ -4,7 +4,7 @@
 <div class="col-lg-4">
 <div class="sponsor">
 <br>
-<a href="#" target="_blank">
+<a href="<%= edit_user_path(@user) %>">
 <img src="<%= @user.avatar %>" alt="UserAvatar" width="240" height="240">
 </a>
 </div>
@@ -39,6 +39,7 @@
 </div>
 <% end %>
 <% end %>
+<a href="<%= new_error_message_path %>" class="btn btn-primary">投稿する</a>
 </div>
 </div>
 
