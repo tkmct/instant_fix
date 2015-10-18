@@ -74,10 +74,18 @@
               </div>
               <div class="col-lg-8">
                   <h1><%= @user.name %></h1>
-                  <h3>N Stars</h3>
+                  <% number =0 %>
+                  <% @user.solutions.each do |solution| %>
+                  <% number = number + "#{solution.good}" %>
+                  <% end %>
+                  <h3>いいねの数：<%= number %>件</h3>
+                  <% if number == 0 %>
+                  積極的に投稿して、評価を上げましょう！
+                  <% end %>
               </div>
           </div>
       </div>
+
 
       <!-- 投稿履歴とプロフィール文 -->
       <div class="bs-docs-section">
@@ -87,12 +95,19 @@
                       <h1 id="typography">エラー詳細投稿履歴</h1>
                   </div>
                   <div class="bs-component">
+                  <% if @user.solutions.count == 0 %>
+                  <p>まだ投稿がありません。評価を上げるために、
+                  積極的に投稿しましょう！</p>
+                  <% else %>
+                    <% @user.solutions.each do |solution| %>
                       <div class="panel panel-default">
                           <div class="panel-body">
-                              <a href="#">ここにエラー詳細ページへのリンクが貼られる1</a>
-                          </div>                  
+                              <a href="#"><%= solution.id %></a>
+                          </div>
                       </div>
-                      <div class="panel panel-default">
+                    <% end %>
+                  <% end %>
+<!--                       <div class="panel panel-default">
                           <div class="panel-body">
                               <a href="#">ここにエラー詳細ページへのリンクが貼られる2</a>
                           </div>                  
@@ -101,7 +116,7 @@
                           <div class="panel-body">
                               <a href="#">ここにエラー詳細ページへのリンクが貼られる3</a>
                           </div>
-                      </div>
+                      </div> -->
                   </div>
               </div>
               
@@ -115,10 +130,10 @@
                           <p><%= @user.message %></p>
                       </blockquote>
                       <blockquote>
-                          <a href="#"><%= @user.url %></a>
+                          <a href="<%= @user.url %>"><%= @user.name %>さんのQuiita</a>
                       </blockquote>
                       <blockquote>
-                          <a href="#">QiitaのURLとか</a>
+                          <a href="<%= @user.url %>"><%= @user.name %>さんのGithub</a>
                       </blockquote>
                   </div>
               </div>
