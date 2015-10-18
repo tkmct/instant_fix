@@ -48,11 +48,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(update_params)
+    @user.update(update_params)
+    root :to => 'top#index'
   end
 
   private
   def update_params
-    params.permit(:name, :message, :url, :avatar)
+    params.require(:user).permit(:name, :message, :url, :avatar)
   end
+
 end
