@@ -21,7 +21,7 @@ class SolutionsController < ApplicationController
 		@solution = Solution.find(params[:id])
 		@solution.good += 1
 		if @solution.save
-      		UserMailer.good_mail(@solution).deliver_later
+      		# UserMailer.good_mail(@solution).deliver_later
     	end
 		respond_to do |format|
 			format.js {render :good, @solution => @solution}
